@@ -42,7 +42,7 @@ fi
 
 # Dir Colors
 if which dircolors >/dev/null 2>&1; then
-    eval `dircolors -b ~/.dir_colors`
+    eval `dircolors -b ~/.dircolors`
     export LS_COLORS
 fi
 
