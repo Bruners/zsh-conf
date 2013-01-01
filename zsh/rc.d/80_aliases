@@ -40,5 +40,8 @@ alias patchpaste="git format-patch --stdout -M -C -C -1 | wgetpaste --raw --serv
 alias -s jpg="/usr/bin/gpicview"
 alias -s png="/usr/bin/gpicview"
 alias -s pdf="/usr/bin/evince"
+# Chromium-browser shortcuts
+alias chrome="/usr/bin/chromium-browser"
+alias ichrome="/usr/bin/chromium-browser --incognito"
 
 # vim:set ft=zsh:
