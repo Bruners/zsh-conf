@@ -20,6 +20,7 @@ zle -N self-insert url-quote-magic
 
 ## load the extract module from oh-my-zsh
 autoload +X extract
+autoload +X xprop_info; xprop_info
 
 compinit
 

@@ -1,0 +1,19 @@
+# script to print values from xprop
+
+function xprop_info() {
+    #if [[ which xprop &> /dev/null ]]; then
+        XPINFO=$(xprop | sed -n \
+            -e 's/^WM_NAME(STRING) = "\(.*\)"$/Title: \1/p' \
+            -e 's/^WM_CLASS(STRING) = "\(.*\)", "\(.*\)"$/Resource: \1\nClass: \2/p' \
+            -e 's/^WM_WINDOW_ROLE(STRING) = "\(.*\)"$/Role: \1/p')
+
+        echo "${XPINFO}"
+    #else
+    #    echo "xprop_info: xprop executable not found in ${PATH}"
+    #fi
+}
+
+alias xp=xprop_info
+
+
+# vim:set ft=zsh:
