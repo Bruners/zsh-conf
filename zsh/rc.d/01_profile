@@ -9,6 +9,7 @@ add_to_path()
 add_to_path /sbin
 add_to_path /usr/sbin
 add_to_path $HOME/.bin
+add_to_path /games
 
 # Hostname
 [ -z "$HOSTNAME" ] && export HOSTNAME=$(hostname)

@@ -18,9 +18,11 @@ autoload -U colors; colors
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
 
-## load the extract module from oh-my-zsh
-autoload +X extract
-autoload +X xprop_info; xprop_info
+## load the extract module from oh-my-zsh ++
+autoload -U extract; extract &> /dev/null
+autoload +X xprop_info
+autoload -U systemd; systemd
+autoload -U fake-accept-line; fake-accept-line
 
 compinit
 

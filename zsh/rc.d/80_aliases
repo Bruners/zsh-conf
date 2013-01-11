@@ -21,6 +21,7 @@ alias chmod="chmod -c"
 alias chown="chown -c"
 # run cave with sudo
 alias cave="sudo cave"
+alias xp="xprop_info"
 # Cd to top level of git folder
 alias grt='cd $(git rev-parse --show-toplevel || echo \".\")'
 # Reboot/Shutdown shortcuts
