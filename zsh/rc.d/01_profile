@@ -50,7 +50,7 @@ export PRUNEPATHS="/tmp /usr/tmp /var/tmp /afs /amd /sfs /proc /var/db"
 
 # xdg-open trickery
 export DESKTOP_SESSION="LXDE"
-export DE="lxde"
+export DE="LXDE"
 export XDG_DESKTOP_DIR="$HOME/Desktop"
 export XDG_MENU_PREFIX=lxde-
 export XDG_CONFIG_HOME="$HOME/.config"
