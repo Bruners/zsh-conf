@@ -25,6 +25,13 @@ zle -N url-quite-magic
 zle -N extract
 zle -N terminal-status
 
+# Dir Colors
+if which dircolors >/dev/null 2>&1;
+then
+    eval `dircolors -b ~/.dircolors`
+    export LS_COLORS
+fi
+
 # Load settings not already loaded from zshenv
 for part in $HOME/.zsh/rc.d/??_*;
 do
