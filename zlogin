@@ -1,2 +1,4 @@
-keychain -q -Q id_rsa
-source ~/.keychain/$HOST-sh
+#[[ $TTY == /dev/tty1 ]] \
+#    && (( $UID )) \
+#    && [[ -z $DISPLAY ]] \
+#    && exec /usr/lib64/systemd/systemd --user

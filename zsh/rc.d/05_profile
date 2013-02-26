@@ -1,0 +1,28 @@
+# Extra exports to load after .zshenv
+
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE="~/.zhistory"
+
+# Browser
+export OPERAPLUGINWRAPPER_PRIORITY=0
+if [ -n "$DISPLAY" ]; then
+    export BROWSER="/usr/bin/opera"
+else
+    export BROWSER="w3m"
+fi
+
+# gtk/qt madness
+export OOO_FORCE_DESKTOP=gnome
+export GTK2_RC_FILES=$HOME/.gtkrc-2.0
+
+# Force vertical sync using TwinView
+export __GL_SYNC_TO_VBLANK=1
+export __GL_SYNC_DISPLAY_DEVICE=DFP-0
+export __VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=DFP-0
+
+# Inform the JVM that your window manager does not re-parent
+# May not be needed
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# vim:set ft=zsh:

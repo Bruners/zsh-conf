@@ -1,0 +1,9 @@
+down-or-fake-accept-line() {
+    if (( HISTNO == HISTCMD )) && [[ "$RBUFFER" != *$'\n'* ]]; then
+        zle fake-accept-line
+    fi
+
+    zle .down-line-or-history "$@"
+}
+
+# vim:set ft=zsh:

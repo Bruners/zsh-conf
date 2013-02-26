@@ -3,6 +3,7 @@ bindkey -e # emacs bindings
 bindkey '^K' kill-whole-line
 bindkey '^L' clear-screen
 bindkey "^O" copy-prev-shell-word
+bindkey '^r' history-incremental-search-backward
 
 bindkey "^A" beginning-of-line
 bindkey "\e[H" beginning-of-line        # Home (xorg)

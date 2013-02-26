@@ -1,33 +1,34 @@
-fpath=($HOME/.zsh/func $HOME/.zsh/completions $fpath)
-typeset -U fpath
-
+fpath=($HOME/.zsh/func $fpath)
+path=($HOME/.bin $path)
 
 autoload -U zutil
 autoload -U compinit
 autoload -U complist
+autoload -U promptinit
 
-## load completion system
-skip_global_compinit=1
-autoload run-help
-autoload run-help-git
+autoload -U add-zsh-hook
+autoload -U terminal-status && terminal-status
 
-## make color constants available
-autoload -U colors; colors
-
-## smart urls
+autoload -U colors && colors
 autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
-
-## load the extract module from oh-my-zsh ++
-autoload -U extract; extract &> /dev/null
-autoload +X xprop_info
-autoload -U systemd; systemd
-autoload -U fake-accept-line; fake-accept-line
 
 compinit
 
-for part in $HOME/.zsh/rc.d/??_*; do
-    source $part
+promptinit
+prompt wunjo
+
+autoload -U extract
+autoload -U mod_params
+autoload -U xprop_info
+
+zle -N url-quite-magic
+zle -N extract
+zle -N terminal-status
+
+# Load settings not already loaded from zshenv
+for part in $HOME/.zsh/rc.d/??_*;
+do
+   source $part
 done
 
 # vim:set ft=zsh:

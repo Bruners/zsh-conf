@@ -1,0 +1,9 @@
+fake-accept-line() {
+    if [[ -n "$BUFFER" ]]; then
+        print -S "$BUFFER"
+    fi
+
+    return 0
+}
+
+# vim:set ft=zsh:

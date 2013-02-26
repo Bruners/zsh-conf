@@ -76,6 +76,8 @@ function extract() {
   done
 }
 
+extract "$@"
+
 alias x=extract
 
 # vim:set ft=zsh:
