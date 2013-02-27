@@ -44,7 +44,7 @@ zstyle ':completion:*' users $_users
 zstyle ':completion:*:*:evince:*' file-patterns \
     '*.(ps|pdf)(|.gz|.bz2):pspdf-files:PostScript\ or\ PDF\ files  *(-/):directories:Directories' '*:all-files'
 zstyle ':completion:*:*:mplayer:*' file-patterns \
-    '*.(mp4|avi|mpg|mpeg):-files:Video\ files  *(-/):directories:Directories' '*:all-files'
+    '*.(mp4|avi|mpg|mpeg|mkv):-files:Video\ files  *(-/):directories:Directories' '*:all-files'
 zstyle ':completion:*' file-patterns \
     '%p:globbed-files: *(-/):directories:Directories' '*:all-files'
 # }}}
