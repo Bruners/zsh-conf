@@ -24,10 +24,10 @@ setopt CORRECT  # Spelling correction
 # setopt NO_FLOW_CONTROL  # Output flow control via start/stop characters (^S/^Q) is disabled in the shell's editor.
 # setopt PATH_DIRS    # Perform a path search even on command names with slashes in them.
 setopt PRINT_EIGHT_BIT  # Print eight bit characters literally in completion lists.
-setopt PRINT_EXIT_VALUE # Print the exit value of programs with non-zero exit status.
+setopt NO_PRINT_EXIT_VALUE # Print the exit value of programs with non-zero exit status.
 ## Job Control
 setopt NO_HUP   # Don't send the HUP signal to running jobs when the shell exits.
-setopt NOTIFY   # Report the status of background jobs immediately.
+setopt NO_NOTIFY   # Report the status of background jobs immediately.
 ## Prompting
 setopt TRANSIENT_RPROMPT    # Remove any right prompt from display when accepting a command line.
 # }}}
