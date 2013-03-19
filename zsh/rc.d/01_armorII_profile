@@ -3,9 +3,9 @@
 typeset -U EDITOR
 EDITOR='/usr/bin/vim'
 typeset -U PAGER
-PAGER='/usr/bin/vimpager'
+PAGER='/usr/bin/less'
 typeset -U MANPAGER
-MANPAGER='/usr/bin/vimpager'
+MANPAGER='/usr/bin/vimmanpager'
 
 export EDITOR PAGER MANPAGER
 
