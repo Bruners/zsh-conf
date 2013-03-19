@@ -1,0 +1,26 @@
+# Diff with colors
+alias diff="/usr/bin/colordiff"
+
+# Color datetime of dmesg
+alias dmesg="dmesg -T|sed -e 's|\(^.*'`date +%Y`']\)\(.*\)|\x1b[0;34m\1\x1b[0m - \2|g'"
+
+# rsync alias
+alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
+
+# run cave with sudo
+alias cave="sudo cave"
+alias xp="xprop_info"
+
+# Reboot/Shutdown shortcuts
+alias reboot="shutdown -r now"
+alias shutdown="shutdown -h now"
+
+# Start rtorrent in a tmux session
+alias rtorrent="tmux new -s rtorrent rtorrent"
+alias -s pdf="/usr/bin/evince"
+
+# diff
+alias chrome="/usr/bin/chromium-browser"
+alias cave-update="cave resolve -R weekly -s  installed-or-best --recommendations display -C if-independent installed-packages"
+
+# vim:set ft=zsh:

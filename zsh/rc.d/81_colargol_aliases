@@ -1,0 +1,4 @@
+# Diff with colors
+alias diff="/usr/bin/vimdiff"
+
+# vim:set ft=zsh:
