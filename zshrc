@@ -1,5 +1,4 @@
 fpath=($HOME/.zsh/func $fpath)
-path=($HOME/.bin $path)
 
 autoload -U zutil
 autoload -U compinit

@@ -1,6 +1,4 @@
-typeset -U path
 typeset -U fpath
-path=($HOME/.bin $path)
 fpath=($HOME/.zsh/autofunc $fpath)
 
 # IRC client-like input http://zshwiki.org/home/zle/ircclientlikeinput
