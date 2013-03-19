@@ -12,6 +12,8 @@ else
     export BROWSER="w3m"
 fi
 
+export DE=gnome
+
 # gtk/qt madness
 export OOO_FORCE_DESKTOP=gnome
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
