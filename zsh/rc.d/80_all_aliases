@@ -50,7 +50,7 @@ alias allep="find . -type f -iregex \".*\.\(avi\|mp4\|mpeg\|mpg\|mkv\)$\" | sort
 alias rtorrent="tmux new -s rtorrent rtorrent"
 
 # Short for pasting last commit to gists with wgetpaste
-alias patchpaste="git format-patch --stdout -M -C -C -1 | wgetpaste --raw --service gists"
+alias patchpaste="git format-patch --stdout -M -C -C -1 | wgetpaste --raw"
 
 alias -s pdf="/usr/bin/evince"
 
