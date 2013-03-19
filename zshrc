@@ -27,14 +27,16 @@ zle -N terminal-status
 # Dir Colors
 if which dircolors >/dev/null 2>&1;
 then
-    eval `dircolors -b ~/.dircolors`
+    eval `dircolors -b ~/.zsh/dircolors`
     export LS_COLORS
 fi
 
 # Load settings not already loaded from zshenv
-for part in $HOME/.zsh/rc.d/??_*;
+source ${HOME}/.zsh/rc.d/01_${HOST}_profile
+for part in ${HOME}/.zsh/rc.d/??_all_*;
 do
-   source $part
+    source $part
 done
+source ${HOME}/.zsh/rc.d/81_${HOST}_aliases
 
 # vim:set ft=zsh:
