@@ -20,7 +20,6 @@ alias rtorrent="tmux new -s rtorrent rtorrent"
 alias -s pdf="/usr/bin/evince"
 
 # diff
-alias chrome="/usr/bin/chromium-browser"
 alias cave-update="cave resolve -R weekly -s  installed-or-best --recommendations display -C if-independent installed-packages"
 
 # vim:set ft=zsh:
