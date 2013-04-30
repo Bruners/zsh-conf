@@ -1,4 +1,4 @@
-fpath=($HOME/.zsh/func $fpath)
+fpath=($HOME/.zsh/func $HOME/.zsh/completions $fpath)
 
 autoload -U zutil
 autoload -U compinit
