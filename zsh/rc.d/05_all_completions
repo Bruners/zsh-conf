@@ -45,6 +45,7 @@ zstyle ':completion:*:*:evince:*' file-patterns \
     '*.(ps|pdf)(|.gz|.bz2):pspdf-files:PostScript\ or\ PDF\ files  *(-/):directories:Directories' '*:all-files'
 zstyle ':completion:*:*:mplayer:*' file-patterns \
     '*.(mp4|avi|mpg|mpeg|mkv):-files:Video\ files  *(-/):directories:Directories' '*:all-files'
+zstyle ':completion:*:*:extract:*' file-patterns '*.(tar|tar.7z|tar.bz2|tbz2|tar.gz|tgz|tar.lzma|tar.xz|7z|a|deb|ace|arj|bz2|cpio|gz|z|jar|zip|lha|lzma|pax|rar|rpm|xz):Compressed\ Files *(-/):directories'
 zstyle ':completion:*' file-patterns \
     '%p:globbed-files: *(-/):directories:Directories' '*:all-files'
 # }}}
