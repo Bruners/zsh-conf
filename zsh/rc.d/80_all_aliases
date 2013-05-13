@@ -17,9 +17,9 @@ alias ll="ls -Foghb --time-style=long-iso"
 alias l="ll -a"
 
 # --verbose --interactive
-alias rm="rm -vi"
-alias cp="cp -vi"
-alias mv="mv -vi"
+alias rm="nocorrect rm -vir"
+alias cp="nocorrect cp -vi"
+alias mv="nocorrect mv -vi"
 # rsync alias
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 # Verbose output showing --changes after
