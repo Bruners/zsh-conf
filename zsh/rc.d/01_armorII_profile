@@ -38,4 +38,7 @@ export __VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE='DFP-0'
 # May not be needed
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# Skip directories and scm in grep
+export GREP_OPTIONS="--directories=skip --color=auto --exclude='.*.sw*' --exclude-dir='.git' --exclude-dir='.svn'"
+
 # vim:set ft=zsh:
