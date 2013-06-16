@@ -1,7 +1,8 @@
-fpath=($HOME/.zsh/func $HOME/.zsh/completions $fpath)
+fpath=($fpath $HOME/.zsh/func $HOME/.zsh/completions)
 
 autoload -U zutil
 autoload -U compinit
+
 autoload -U complist
 autoload -U promptinit
 
@@ -9,9 +10,9 @@ autoload -U add-zsh-hook
 autoload -U terminal-status && terminal-status
 
 autoload -U colors && colors
-autoload -U url-quote-magic
+autoload -Uz url-quote-magic
 
-compinit
+compinit -u
 
 promptinit
 prompt wunjo
@@ -20,7 +21,7 @@ autoload -U extract
 autoload -U mod_params
 autoload -U xprop_info
 
-zle -N url-quite-magic
+zle -N self-inserts url-quite-magic
 zle -N extract
 zle -N terminal-status
 
@@ -38,5 +39,9 @@ do
     source $part
 done
 source ${HOME}/.zsh/rc.d/81_${HOST}_aliases
+
+cdpath=(~ ~/exherbo ${DEV_DIR})
+
+typeset -aU path
 
 # vim:set ft=zsh:
