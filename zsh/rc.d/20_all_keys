@@ -1,21 +1,39 @@
 bindkey -e # emacs bindings
 
+# <c-k> dd
 bindkey '^K' kill-whole-line
+# <c-l> clear
 bindkey '^L' clear-screen
+# <c-o> insert a copy of previous word in the commandline
 bindkey "^O" copy-prev-shell-word
-bindkey '^r' history-incremental-search-backward
+# <c-r> incremental search
+bindkey '^R' history-incremental-search-backward
 
-bindkey "^A" beginning-of-line
-bindkey "\e[H" beginning-of-line        # Home (xorg)
-bindkey "\e[1~" beginning-of-line       # Home (console)
-bindkey "^E" end-of-line
-bindkey "\e[4~" end-of-line             # End (console)
-bindkey "\e[F" end-of-line              # End (xorg)
-bindkey "\e[2~" quoted-insert           # Ins
-bindkey "\e[3~" delete-char             # Delete
-bindkey "\e[5~" beginning-of-history    # PageUp
-bindkey "\e[6~" end-of-history          # PageDown
-bindkey "\e\e[C" forward-word           # Alt+>
-bindkey "\e\e[D" backward-word          # Alt+<
+# <home> on console
+bindkey "\e[1~" beginning-of-line
+# <insert> on console
+bindkey "\e[2~" quoted-insert
+# <delete> on console
+bindkey "\e[3~" delete-char
+# <end> on console
+bindkey "\e[4~" end-of-line
+# <PageUp> on console
+bindkey "\e[5~" beginning-of-history
+# <PageDown> on console
+bindkey "\e[6~" end-of-history
+# Do history expansion on space
+bindkey ' ' magic-space
+
+# alt-« / alt-» to move between wrods
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+# ctrl-« / ctrl-»
+bindkey "^[[1;5C" emacs-forward-word
+bindkey "^[[1;5D" emacs-backward-word
+
+bindkey "^[[5~" up-line-or-history
+bindkey "^[[6~" down-line-or-history
+
+bindkey -s '^[[Z' '\t'
 
 # vim:set ft=zsh:
