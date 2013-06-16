@@ -6,12 +6,14 @@ _force_rehash() {
 zstyle ':completion:*' completer \
   _oldlist _expand _force_rehash _complete
 
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+#zstyle ':completion:*' list-colors no=00 fi=00 di=01\;34 pi=33 so=01\;35 bd=00\;35 cd=00\;34 or=00\;41 mi=00\;45 ex=01\;32
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' file-sort name
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**' 'l:|=** r:|=**'
+#zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**' 'l:|=** r:|=**'
 zstyle ':completion:*' menu select
 zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
 
@@ -27,7 +29,7 @@ zstyle ':completion:*' group-name ''
 # {{{ Kill complete
 zstyle ':completion:*:processes' command 'ps -au$USER -o pid,time,cmd|grep -v "ps -au$USER -o pid,time,cmd"'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)[ 0-9:]#([^ ]#)*=01;30=01;31=01;38'
- # }}}
+# }}}
 #  {{{ Hosts and users
 _hosts=($((
     ( [ -r ~/.ssh/config ] && awk '/^host +[a-z]/ { print $2 }' ~/.ssh/config) ;\
@@ -36,7 +38,6 @@ _hosts=($((
 
 zstyle ':completion:*' hosts $_hosts
 zstyle ':completion:*:hosts' list-colors '=(#b)(*)(.tihlde.org)=01;30=02;31' '=[^.]#=01;31'
-
 _users=(root lasseb)
 zstyle ':completion:*' users $_users
 # }}}
@@ -49,5 +50,8 @@ zstyle ':completion:*:*:extract:*' file-patterns '*.(tar|tar.7z|tar.bz2|tbz2|tar
 zstyle ':completion:*' file-patterns \
     '%p:globbed-files: *(-/):directories:Directories' '*:all-files'
 # }}}
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*:rm:*' ignore-line yes
+
 # vim:set ft=zsh:
