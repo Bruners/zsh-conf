@@ -1,4 +1,4 @@
 # Diff with colors
 alias diff="/usr/bin/vimdiff"
-
+alias ta="tmux attach"
 # vim:set ft=zsh:
