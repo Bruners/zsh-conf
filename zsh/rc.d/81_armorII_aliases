@@ -1,7 +1,7 @@
 # User vimpager from environment
 alias less=$PAGER
 alias zless=$PAGER
-alias cat="/usr/bin/vimcat"
+alias vcat="/usr/bin/vimcat"
 
 # Color datetime of dmesg
 alias dmesg="dmesg -T|sed -e 's|\(^.*'`date +%Y`']\)\(.*\)|\x1b[0;34m\1\x1b[0m - \2|g'"

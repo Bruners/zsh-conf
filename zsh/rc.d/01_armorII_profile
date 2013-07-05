@@ -6,13 +6,13 @@ EDITOR='/usr/bin/vi'
 typeset -U PAGER
 PAGER='/usr/bin/vimpager'
 typeset -U MANPAGER
-MANPAGER='/usr/bin/vimmanpager'
+MANPAGER='/usr/bin/vimpager'
 
 export EDITOR VISUAL PAGER MANPAGER
 
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE='~/.zhistory'
+HISTFILE="${HOME}/.zsh/zhistory"
 
 export HISTSIZE SAVEHIST HISTFILE
 
@@ -41,5 +41,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Skip directories and scm in grep
 export GREP_OPTIONS="--directories=skip --color=auto --exclude='.*.sw*' --exclude-dir='.git' --exclude-dir='.svn'"
+
+umask 002
+bindkey -e
 
 # vim:set ft=zsh:

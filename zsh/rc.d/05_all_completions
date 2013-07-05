@@ -1,57 +1,53 @@
+#!/bin/zsh
+
 _force_rehash() {
-    (( CURRENT == 1 )) && rehash
-    return 1      # Because we didn't really complete anything
+  (( CURRENT == 1 )) && rehash
+  return 1	# Because we didn't really complete anything
 }
 
 zstyle ':completion:*' completer \
   _oldlist _expand _force_rehash _complete
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-#zstyle ':completion:*' list-colors no=00 fi=00 di=01\;34 pi=33 so=01\;35 bd=00\;35 cd=00\;34 or=00\;41 mi=00\;45 ex=01\;32
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' file-sort name
-#zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**' 'l:|=** r:|=**'
+zstyle ':completion:*' list-colors ${(s.:.)ZLS_COLORS}
+zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**' 'l:|=** r:|=**'
 zstyle ':completion:*' menu select
 zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
 
-# {{{ Formats
 zstyle ':completion:*' group 1
 zstyle ':completion:*' format '%B---- %d%b'
 zstyle ':completion:*:corrections' format '%B---- %d (errors %e)%b'
 zstyle ':completion:*:descriptions' format "%B---- %d%b"
-zstyle ':completion:*:messages' format '%B%U---- %d%u%b' 
+zstyle ':completion:*:messages' format '%B%U---- %d%u%b'
 zstyle ':completion:*:warnings' format "%B$fg[red]%}---- no match for: $fg[white]%d%b"
 zstyle ':completion:*' group-name ''
-# }}}
-# {{{ Kill complete
+
 zstyle ':completion:*:processes' command 'ps -au$USER -o pid,time,cmd|grep -v "ps -au$USER -o pid,time,cmd"'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)[ 0-9:]#([^ ]#)*=01;30=01;31=01;38'
-# }}}
-#  {{{ Hosts and users
-_hosts=($((
-    ( [ -r ~/.ssh/config ] && awk '/^host +[a-z]/ { print $2 }' ~/.ssh/config) ;\
-    ( [ -r ~/.ssh/known_hosts ] && awk '{print $1}' ~/.ssh/known_hosts | tr , '\n')
+
+hosts=($((
+        ( [ -r ~/.ssh/config ] && awk '/^host +[a-z]/ { print $2 }' ~/.ssh/config) ;\
+        ( [ -r ~/.ssh/known_hosts ] && awk '{print $1}' ~/.ssh/known_hosts | tr , '\n')
 ) | sort -u))
 
-zstyle ':completion:*' hosts $_hosts
-zstyle ':completion:*:hosts' list-colors '=(#b)(*)(.tihlde.org)=01;30=02;31' '=[^.]#=01;31'
-_users=(root lasseb)
-zstyle ':completion:*' users $_users
-# }}}
-# {{{ Files
+zstyle ':completion:*' hosts $hosts
+zstyle ':completion:*:hosts' list-colors '=(#b)(*)(.jukie.net)=01;30=01;31' '=[^.]#=01;31'
+
+users=(root lasseb)
+zstyle ':completion:*' users $users
+
 zstyle ':completion:*:*:evince:*' file-patterns \
     '*.(ps|pdf)(|.gz|.bz2):pspdf-files:PostScript\ or\ PDF\ files  *(-/):directories:Directories' '*:all-files'
 zstyle ':completion:*:*:mplayer:*' file-patterns \
-    '*.(mp4|avi|mpg|mpeg|mkv):-files:Video\ files  *(-/):directories:Directories' '*:all-files'
-zstyle ':completion:*:*:extract:*' file-patterns '*.(tar|tar.7z|tar.bz2|tbz2|tar.gz|tgz|tar.lzma|tar.xz|7z|a|deb|ace|arj|bz2|cpio|gz|z|jar|zip|lha|lzma|pax|rar|rpm|xz):Compressed\ Files *(-/):directories'
+    '*.(mp4|m4v|avi|mpg|mpeg|mkv):-files:Video\ files  *(-/):directories:Directories' '*:all-files'
+zstyle ':completion:*:*:extract:*' file-patterns \
+    '*.(tar|tar.7z|tar.bz2|tbz2|tar.gz|tgz|tar.lzma|tar.xz|7z|a|deb|ace|arj|bz2|cpio|gz|z|jar|zip|lha|lzma|pax|rar|rpm|xz):Compressed\ Files *(-/):directories'
+
 zstyle ':completion:*' file-patterns \
     '%p:globbed-files: *(-/):directories:Directories' '*:all-files'
-# }}}
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-zstyle ':completion:*:rm:*' ignore-line yes
 
-# vim:set ft=zsh:
+zstyle ':completion:*:*:vi(m|):*:*files' ignored-patterns '*?.(aux|dvi|ps|pdf|bbl|lot|lof|o|cm?)'
+zstyle ':completion:*:rm:*' ignore-line yes
