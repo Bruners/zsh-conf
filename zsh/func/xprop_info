@@ -3,8 +3,11 @@
 function xprop_info() {
     XPINFO=$(xprop | sed -n \
         -e 's/^WM_NAME(STRING) = "\(.*\)"$/Title: \1/p' \
+        -e 's/^WM_NAME(UTF8_STRING) = "\(.*\)"$/Title (UTF-8): \1/p' \
         -e 's/^WM_CLASS(STRING) = "\(.*\)", "\(.*\)"$/Resource: \1\nClass: \2/p' \
-        -e 's/^WM_WINDOW_ROLE(STRING) = "\(.*\)"$/Role: \1/p')
+        -e 's/^WM_CLASS(UTF8_STRING) = "\(.*\)", "\(.*\)"$/Resource (UTF-8): \1\nClass: \2/p' \
+        -e 's/^WM_WINDOW_ROLE(STRING) = "\(.*\)"$/Role: \1/p' \
+        -e 's/^WM_WINDOW_ROLE(UTF8_STRING) = "\(.*\)"$/Role (UTF-8): \1/p')
     echo "${XPINFO}"
 }
 
