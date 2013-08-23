@@ -10,12 +10,14 @@ bindkey '^R' history-incremental-search-backward
 
 # <home> on console
 bindkey "\e[1~" beginning-of-line
+bindkey "^[OH" beginning-of-line
 # <insert> on console
 bindkey "\e[2~" quoted-insert
 # <delete> on console
 bindkey "\e[3~" delete-char
 # <end> on console
 bindkey "\e[4~" end-of-line
+bindkey "^[OF" end of line
 # <PageUp> on console
 bindkey "\e[5~" beginning-of-history
 # <PageDown> on console
