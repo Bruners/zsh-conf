@@ -25,7 +25,7 @@ setopt PRINT_EIGHT_BIT      # Print eight bit characters literally in completion
 setopt NO_PRINT_EXIT_VALUE  # Print the exit value of programs with non-zero exit status.
 ## Job Control
 setopt NO_HUP               # Don't send the HUP signal to running jobs when the shell exits.
-setopt NO_NOTIFY            # Report the status of background jobs immediately.
+setopt NOTIFY               # Report the status of background jobs immediately.
 ## Prompting
 setopt PROMPTSUBST          # Needed for prompts and colours
 setopt TRANSIENT_RPROMPT    # Remove any right prompt from display when accepting a command line.

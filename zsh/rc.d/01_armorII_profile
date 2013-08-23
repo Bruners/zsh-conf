@@ -2,11 +2,11 @@
 typeset -U VISUAL
 VISUAL='/usr/bin/vi'
 typeset -U EDITOR
-EDITOR='/usr/bin/vi'
+EDITOR=${EDITOR:-/usr/bin/vim}
 typeset -U PAGER
-PAGER='/usr/bin/vimpager'
+PAGER=${PAGER:-/usr/bin/vimpager}
 typeset -U MANPAGER
-MANPAGER='/usr/bin/vimpager'
+MANPAGER=${PAGER:-/usr/bin/less}
 
 export EDITOR VISUAL PAGER MANPAGER
 
@@ -19,10 +19,12 @@ export HISTSIZE SAVEHIST HISTFILE
 # Browser
 export OPERAPLUGINWRAPPER_PRIORITY=0
 if [ -n "$DISPLAY" ]; then
-    export BROWSER='/usr/bin/opera'
+    export BROWSER='/usr/bin/firefox'
 else
     export BROWSER='w3m'
 fi
+
+export HASTE_SERVER="http://bruners.synology.me:8080/"
 
 export DE='gnome'
 

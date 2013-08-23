@@ -5,16 +5,15 @@ _force_rehash() {
   return 1	# Because we didn't really complete anything
 }
 
-zstyle ':completion:*' completer \
-  _oldlist _expand _force_rehash _complete
+zstyle ':completion:*' completer _expand _force_rehash _complete
 
 zstyle ':completion:*' add-space true
-zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list
+zstyle ':completion:*' completer _expand _complete _match _prefix _ignored _correct _approximate _list
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' list-colors ${(s.:.)ZLS_COLORS}
 zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**' 'l:|=** r:|=**'
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select=long
 zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
 
 zstyle ':completion:*' group 1
