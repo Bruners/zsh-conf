@@ -1,0 +1,8 @@
+# sudo trick from keruspe
+# https://github.com/Keruspe/system-config/blob/master/user/.zshrc
+
+sudo() {
+    su - -c "$@"
+}
+
+# vim: set ft=zsh:
