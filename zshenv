@@ -1,3 +1,9 @@
+# Load environment settings from profile.env, which is created by
+# # env-update from the files in /etc/env.d
+if [ -e /etc/profile.env ] ; then
+    . /etc/profile.env
+fi
+
 typeset -aU path cdpath fpath manpath
 fpath=($HOME/.zsh/autofunc $fpath)
 
