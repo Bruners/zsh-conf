@@ -17,4 +17,6 @@ export HISTSIZE SAVEHIST HISTFILE
 
 export BROWSER='/usr/bin/w3m'
 
+export TERM="screen-256color"
+
 # vim:set ft=zsh:
