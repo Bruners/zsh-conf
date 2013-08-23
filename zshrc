@@ -1,4 +1,5 @@
 fpath=(${HOME}/.zsh/func ${HOME}/.zsh/completions ${fpath})
+autoload -U ~/.zsh/func/*(:t)
 
 # Dir Colors
 if which dircolors >/dev/null 2>&1;
@@ -11,37 +12,44 @@ typeset -aU _compdir
 _compdir=(${HOME}/.zsh/completions)
 
 # Load settings not already loaded from zshenv
-source ${HOME}/.zsh/rc.d/01_${HOST}_profile
+. ${HOME}/.zsh/rc.d/01_${HOST}_profile
 
 zmodload -i zsh/complist
 autoload -Uz zutil
-autoload -Uz colors && colors
-autoload -Uz add-zsh-hook
-autoload -Uz promptinit && promptinit
-autoload -U terminal-status && terminal-status
-autoload -Uz compinit
-compinit
+autoload -Uz colors
+colors
+
+autoload -Uz url-quote-magic && {
+    zle -N self-insert url-quote-magic
+}
+
+autoload -Uz copy-earlier-word
+zle -N copy-prev-shell-word copy-earlier-word
 
 # import more settings
 for part in ${HOME}/.zsh/rc.d/??_all_*;
 do
-    source ${part}
+    . ${part}
 done
+
+autoload -Uz promptinit
+promptinit
+
+autoload -Uz compinit
+compinit
 
 zstyle :compinstall filename '/home/lasseb/.zshrc'
 
-source ${HOME}/.zsh/rc.d/81_${HOST}_aliases
+. ${HOME}/.zsh/rc.d/81_${HOST}_aliases
 
-autoload -Uz url-quote-magic
-autoload -U extract
-autoload -U mod_params
-autoload -U xprop_info
-
-zle -N copy-prev-shell-word copy-earlier-word
-zle -N add-zsh-hook
-zle -N terminal-status
-zle -N self-inserts url-quite-magic
-zle -N extract
+shopts=$-
+setopt nullglob
+for sh in /etc/profile.d/*.sh ; do
+    [ -r "$sh" ] && . "$sh"
+done
+unsetopt nullglob
+set -$shopts
+unset sh shopts
 
 prompt wunjo
 
